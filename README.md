@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 
 ### **4. Configure Environment Variables**  
-edit a `.env` file in the project root and add:  
+edit a `.env` file in the src directory:
 ```env
 ZABBIX_URL=http://your-zabbix-server/zabbix/api_jsonrpc.php
 ZABBIX_USER=Admin
