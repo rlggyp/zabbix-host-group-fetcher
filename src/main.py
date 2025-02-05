@@ -1,9 +1,15 @@
+from dotenv import load_dotenv
 from flask import Flask, jsonify
+import os
 import requests
 
-url = "http://192.168.1.254/zabbix/api_jsonrpc.php"
-user = "Admin"
-password = "zabbix"
+script_dir = os.path.dirname(__file__)
+load_dotenv(os.path.join(script_dir, ".env"))
+
+url = os.getenv("ZABBIX_URL") 
+user = os.getenv("ZABBIX_USER")
+password = os.getenv("ZABBIX_PASSWORD")
+
 headers = {"Content-Type": "application/json"}
 
 zabbix_token = None
@@ -121,5 +127,3 @@ def get_groups():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
-
-
